@@ -1,0 +1,78 @@
+﻿<Window x:Class="LibraryWPF.BookLogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryWPF"
+        mc:Ignorable="d"
+        Title="BookLogWindow" Height="500" Width="800">
+    <Grid Margin="0,0,0,-6">
+        <TextBlock HorizontalAlignment="Center" Height="30" Margin="0,37,0,0" Text="DATA" TextWrapping="Wrap" VerticalAlignment="Top" Width="800" FontWeight="Bold" Foreground="#FF0C0B0B" FontFamily="Microsoft JhengHei" TextAlignment="Center" FontSize="16"/>
+        <DockPanel Margin="0,2,0,462">
+            <Menu DockPanel.Dock="Top" Height="30">
+                <MenuItem Header="_Home" Click="MenuItemHome_Click">
+                    <MenuItem Header="_Exit" />
+                </MenuItem>
+                <MenuItem Header="_Data">
+                    <MenuItem Header="_Book" Click="MenuItemBook_Click">
+                        <MenuItem.Icon>
+                            <Image Source="C:/Users/bimasakti/source/repos/LibraryWPF/Assets/books.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Member" Click="MenuItemMember_Click">
+                        <MenuItem.Icon>
+                            <Image Source="C:/Users/bimasakti/source/repos/LibraryWPF/Assets/members.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_BookLog" Click="MenuItemBookLog_Click">
+                        <MenuItem.Icon>
+                            <Image Source="C:/Users/bimasakti/source/repos/LibraryWPF/Assets/booklog.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                
+                <!---<TabControl>
+                    <TabItem Header="TabItem">
+                        <Grid Background="#FFE5E5E5"/>
+                    </TabItem>
+                    <TabItem Header="TabItem">
+                        <Grid Background="#FFE5E5E5"/>
+                    </TabItem>
+                </TabControl>-->
+            </Menu>
+        </DockPanel>
+        <Label Content="BookLog" HorizontalAlignment="Left" Margin="11,68,0,0" VerticalAlignment="Top"/>
+        <Button Content="Add" HorizontalAlignment="Left" Height="25" Margin="16,97,0,0" VerticalAlignment="Top" Width="71" Click="Button_Click"/>
+        <DataGrid Name="dataGrid" AutoGenerateColumns="False" CanUserAddRows="False"
+Margin="16,129,24,26"
+RowBackground="#fff" FontWeight="Bold" Foreground="#525252"
+ScrollViewer.CanContentScroll="True" MaxHeight="390"
+AlternatingRowBackground="#f2f2f2" BorderBrush="#000" BorderThickness="1"
+ScrollViewer.HorizontalScrollBarVisibility="Visible"
+ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path='id'}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Start Time" Binding="{Binding Path='startTime'}" IsReadOnly="True" />
+                <DataGridTextColumn Header="End Time" Binding="{Binding Path='endTime'}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Book Id" Binding="{Binding Path='bookId'}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Member Id" Binding="{Binding Path='memberId'}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Status" Binding="{Binding Path='status'}" IsReadOnly="True" />
+                <DataGridTemplateColumn Header="Update">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnView" Content="Update" Click="btnView_Edit" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnView" Content="Delete" Click="btnView_Delete" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox HorizontalAlignment="Left" Height="1" Margin="100,92,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="4"/>
+    </Grid>
+</Window>
